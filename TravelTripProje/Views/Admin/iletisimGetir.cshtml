@@ -1,0 +1,27 @@
+﻿@model TravelTripProje.Models.Sınıflar.iletisim
+@{
+    ViewBag.Title = "iletisimGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İletişim Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("iletisimGuncelleme", "Admin", FormMethod.Post)) //Ne zaman Çalışacak ActionResult YorumGuncelleme devreye girdiğinde çalışacak,Bu BlogGuncelle nerede AdminContoller içinde Admin yazdık, Sayfada butona tıklanıp post işlemi gerçekleştiği zaman
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" }) //readonly değişiklik yapmayı engelliyor.
+    <br />
+    @Html.LabelFor(x => x.AdSoyad)
+    @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Konu)
+    @Html.TextAreaFor(x => x.Konu, 10, 1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mesaj)
+    @Html.TextAreaFor(x => x.Mesaj, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">İletişim Güncelle</button>
+}
